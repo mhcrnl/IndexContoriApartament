@@ -1,4 +1,4 @@
-<?php
+<?php //app/controllers/HomeController.php
 
 class HomeController extends BaseController {
 
@@ -15,9 +15,33 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		return View::make('index');
+	}
+	public function create()
+	{
+		return View::make('create');
+	}
+	public function handleCreate()
+	{
+
+	}
+	public function edit(Game $game)
+	{
+		return View::make('edit');
+	}
+	public function handleEdit()
+	{
+
+	}
+	public function delete()
+	{
+		return View::make('delete');
+	}
+	public function handleDelete()
+	{
+
 	}
 
 }
