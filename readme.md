@@ -10,7 +10,7 @@ Compiling views
 mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$
 '''
 In urma executarii codului obtinem:
-'''
+```
 <?php //app/database/migrations/2014_11_12_163814_create_indexcontori
 
 use Illuminate\Database\Schema\Blueprint;
@@ -85,7 +85,7 @@ class CreateIndexcontori extends Migration {
 
 }
 
-'''
+```
 Rulam in linia de comanda urmatoarea comanda:
 '
 mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$ php artisan migrate
