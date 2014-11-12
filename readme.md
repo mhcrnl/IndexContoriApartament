@@ -1,3 +1,106 @@
+In fila app/config/database.php linia 29 schimbam 'default'=> 'mysql' cu 'default'=> 'sqlite'.
+Acum creem baza de date utilizand comanda din directorul in care avem aplicatia:
+  $ php artisan migrate: make create_indexcontori
+  '''
+  mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$ php artisan migrate:make create_indexcontori
+Created Migration: 2014_11_12_163814_create_indexcontori
+Generating optimized class loader
+Compiling common classes
+Compiling views
+mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$
+'''
+In urma executarii codului obtinem:
+'''
+<?php //app/database/migrations/2014_11_12_163814_create_indexcontori
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateIndexcontori extends Migration {
+
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    //
+  }
+
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    //
+  }
+
+}
+
+'''
+Modifica aceasta fila dupa cum urmeaza:
+'''
+<?php //app/database/migrations/2014_11_12_163814_create_indexcontori
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateIndexcontori extends Migration {
+
+  /**
+   * Run the migrations.
+   *
+   * @return void
+   */
+  public function up()
+  {
+    //
+    Schema::create('indexcontori', function($table){
+      $table->increments('id');
+      $table->integer('Bucatarie apa rece');
+      $table->integer('Bucatarie apa calda');
+      $table->integer('Baie apa rece');
+      $table->integer('Baie apa calda');
+      $table->integer('Gaze');
+      $table->integer('Calorifer 6263 sufragerie');
+      $table->integer('Calorifer 6262 dormitor1');
+      $table->integer('Calorifer 6261 dormitor2');
+      $table->timestamps();
+    });
+  }
+
+  /**
+   * Reverse the migrations.
+   *
+   * @return void
+   */
+  public function down()
+  {
+    //
+    Schema::drop('indexcontori');
+  }
+
+}
+
+'''
+Rulam in linia de comanda urmatoarea comanda:
+'
+mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$ php artisan migrate
+**************************************
+*     Application In Production!     *
+**************************************
+
+Do you really wish to run this command?
+Migration table created successfully.
+Migrated: 2014_11_12_163814_create_indexcontori
+mhcrnl@mhcrnl:~/Desktop/IndexContoriApartament$
+
+'
+
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
